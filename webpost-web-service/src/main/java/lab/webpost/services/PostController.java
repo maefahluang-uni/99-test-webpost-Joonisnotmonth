@@ -27,20 +27,16 @@ public class PostController {
     public ResponseEntity<List<Post>> getPosts() {
         List<Post> posts = postRepository.findAll();
 
-        if (posts.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
         return ResponseEntity.ok(posts);
     }
 
     // TODO: getting post by id
     @GetMapping("/posts/{id}")
-    public ResponseEntity<Post> getPostById(@PathVariable Long id) {
-
+    public ResponseEntity<Post> getPostById(@PathVariable long id) {
+        // TODO: find post by ID suing em.find(...
         Optional<Post> optPost = postRepository.findById(id);
 
-        // TODO: check if post is null
+        // TODO: Handle the case when no entity is found
         if (!optPost.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

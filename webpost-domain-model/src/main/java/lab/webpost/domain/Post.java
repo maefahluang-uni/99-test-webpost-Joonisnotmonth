@@ -28,6 +28,7 @@ public class Post {
 
     private String title;
     private String body;
+
     private LocalDateTime createdAt;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
