@@ -69,7 +69,7 @@ public class PostController {
     }
 
     // TODO: delete post by id
-    @DeleteMapping("/posts")
+    @DeleteMapping("/posts/{id}")
     public ResponseEntity<String> deletePost(@PathVariable Long id) {
 
         if (!postRepository.existsById(id)) {
@@ -82,7 +82,7 @@ public class PostController {
     }
 
     // TODO: delete all posts
-    @DeleteMapping("/posts/{id}")
+    @DeleteMapping("/posts")
     public ResponseEntity<String> deleteAllPosts() {
         postRepository.deleteAll();
 
